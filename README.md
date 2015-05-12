@@ -15,7 +15,9 @@ There are others functions that we would like to implement in this project, and 
 ##Project Members
 - [Vinicius Cardoso](http://www.viniciuscardoso.com.br)
 - Bryan Pinheiro
-- 
+
+
+
 #(pt-br) Carro de Controle Remoto
 
 Este é um pequeno projeto que vamos construir um carro de controle remoto com um Raspberry Pi 2 e um Arduino Nano. Se você tiver interesse em aprender como vamos fazê-lo basta seguir este git para ver todo o código do projeto e acompanhar o seu desenvolvimento.
