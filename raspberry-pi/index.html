@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+  <head>
+
+    <title>Remote Control</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <style>
+      /* General */
+        body {font: 22px Helvetica, Arial;background-color: #3c73a3;}
+        #all-page{width: 100%;min-height: 100%;position: relative;}
+        .clear{clear: both;}
+
+      /* Title */
+        h1{text-align: center;color: white;}
+
+      /* Controller */
+        /* General */
+          button{width: 100px;height: 100px;border: none; background:#25931f;outline: none;font-size:40px;}
+          button:active{background: #013c00;color:white;}
+          .control-area{width:320px;height:210px;margin:50px auto;position:relative;}
+          .clear{clear: both;}
+
+        /* Top */
+          .top{height:100px;width:100px;margin:10px auto;position:relative;}
+
+        /* Bottom */
+          .botton{width:320px;height;position:relative;}
+          .botton .button{width:100px;margin-left:10px;float:left;}
+          .botton .button:first-child{margin-left:0px;}
+    </style>
+
+  </head>
+
+
+  <body>
+    <div id="all-page">
+      <h1>Remote Control</h1>
+
+      <div class="control-area">
+
+        <div class="top button">
+          <button data="front">↑</button>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="botton">
+          <div class="button"><button data="left">←</button></div>
+          <div class="button"><button data="back">↓</button></div>
+          <div class="button"><button data="right">→</button></div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+    <script>
+      var socket = io();
+
+      function senddata(direction, value){
+        socket.emit('car-control', direction, value);
+      }
+
+      // Usar Botões
+        $('button').mousedown(function(){
+          var direction = $(this).attr('data');
+          senddata(direction, 'able');
+        });
+
+        $('button').mouseup(function(){
+          var direction = $(this).attr('data');
+          senddata(direction, 'disable');
+        });
+
+    </script>
+  </body>
+</html>
